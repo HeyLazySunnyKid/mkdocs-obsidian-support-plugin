@@ -19,18 +19,18 @@ class AdmonitionBackquotesConvert(AbstractConversion):
         super().__init__(OBSIDIAN_CALL_OUT_REGEX, OBSIDIAN_CALL_OUT_REGEX_GROUPS)
 
         with open("log.txt", "a") as file:
-            file.write('DEBUG init DEBUG')
+            file.write('DEBUG init DEBUG\n')
 
     def convert(self, syntax_groups: SyntaxGroup, page: Page) -> str:
         with open("log.txt", "a") as file:
-            file.write('DEBUG convert DEBUG')
+            file.write('DEBUG convert DEBUG\n')
         return create_admonition(*syntax_groups)
 
 
 def create_admonition(ad_type: str) -> str:
     #  if title is None:
     with open("log.txt", "a") as file:
-        file.write('DEBUG create motion DEBUG')
+        file.write('DEBUG create motion DEBUG\n')
 
     title = "adfadsfasd"
 
