@@ -9,8 +9,8 @@ to [mkdocs-material admonition](https://squidfunk.github.io/mkdocs-material/refe
 # OBSIDIAN_CALL_OUT_REGEX = "\n ?> ?\\[!(?P<type>[a-z]+)\\](?P<title> .*)?(?P<lines>(\n ?>.*)*)"
 #  OBSIDIAN_CALL_OUT_REGEX = "\n```(?P<type>[a-z]+)\\]\n(title: (?P<title> .*))?\n(?P<lines>(.*\n))```"
 # OBSIDIAN_CALL_OUT_REGEX = "\n```\\[(?P<type>[a-z]+)\\]```"
-OBSIDIAN_CALL_OUT_REGEX = r"```(?P<type>[a-z]+)```"
-OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type']
+OBSIDIAN_CALL_OUT_REGEX = r"```(ad-(?P<type>[a-z-]+))\n((title: (?P<title>[^\n]+))\n)?((colapse: (?P<colapse>[^\n]+))\n)?(?P<lines>(.*\n)*)```"
+OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type', 'title', 'colapse', 'lines']
 
 
 class AdmonitionBackquotesConvert(AbstractConversion):
@@ -26,12 +26,18 @@ class AdmonitionBackquotesConvert(AbstractConversion):
         return create_admonition(*syntax_groups)
 
 
-def create_admonition(ad_type: str) -> str:
-    #  if title is None:
-        #  title = ""
-    # debug
-    #  if lines is None:
-        #  lines = ""
+def create_admonition(ad_type: str, title: str, colapse: str, lines: str) -> str:
+    if title is None:
+        title = ""
+    else:
+        title = '"'+ title + '"'
 
-    admonition = "\n!!! " + ad_type + title + "\n" + lines
+    if colapse == "closed"
+        colapse = '??? '
+    elif colapse == "none":
+        colapse = '!!! '
+    else:
+        colapse = "???+ "
+
+    admonition = "\n"+ colapse + ad_type + ' ' + title + "\n" + lines
     return admonition
