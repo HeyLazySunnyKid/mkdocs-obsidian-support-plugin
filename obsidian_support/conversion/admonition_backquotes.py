@@ -40,6 +40,9 @@ def create_admonition(ad_type: str, title: str, colapse: str, lines: str) -> str
         colapse = "???+ "
 
     lines = lines.replace("\n", "\n    ")
+    with open("log.txt", "a") as file:
+        file.write(f'DEBUG lines DEBUG\n{ lines }')
+    
 
-    admonition = "\n"+ colapse + ad_type + ' ' + title + "\n    \n" + lines
+    admonition = "\n"+ colapse + ad_type + ' ' + title + "\n    " + lines
     return admonition
