@@ -10,7 +10,13 @@ A template method that applies conversion for every regex matches
 def markdown_convert(markdown: str, page: Page, conversion: AbstractConversion) -> str:
     converted_markdown = ""
     index = 0
+    with open("log.txt", "a") as file:
+        file.write(f'OLOLO: ---- DEBUG\n')
     for obsidian_syntax in conversion.obsidian_regex_pattern.finditer(markdown):
+
+        with open("log.txt", "a") as file:
+            file.write(f'OLOLO: {{ obsidian_syntax.start() }} {{ obsidian_syntax.end() }} DEBUG\n')
+
         ## found range of markdown where the obsidian_regex matches
         start = obsidian_syntax.start()
         end = obsidian_syntax.end() - 1
