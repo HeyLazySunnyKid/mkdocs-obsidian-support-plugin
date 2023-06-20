@@ -9,7 +9,7 @@ to [mkdocs-material admonition](https://squidfunk.github.io/mkdocs-material/refe
 # OBSIDIAN_CALL_OUT_REGEX = "\n ?> ?\\[!(?P<type>[a-z]+)\\](?P<title> .*)?(?P<lines>(\n ?>.*)*)"
 #  OBSIDIAN_CALL_OUT_REGEX = "\n```(?P<type>[a-z]+)\\]\n(title: (?P<title> .*))?\n(?P<lines>(.*\n))```"
 # OBSIDIAN_CALL_OUT_REGEX = "\n```\\[(?P<type>[a-z]+)\\]```"
-OBSIDIAN_CALL_OUT_REGEX = r"```(ad-(?P<type>[a-z-]+))\n((title: (?P<title>[^\n]+))\n)?((colapse: (?P<colapse>[^\n]+))\n)?(?P<lines>(.*\n)*)```"
+OBSIDIAN_CALL_OUT_REGEX = r"```(ad-(?P<type>[a-z-]+))\n((title: (?P<title>[^\n]+))\n)?((colapse: (?P<colapse>[^\n]+))\n)?(?P<lines>((?!```).*\n)*)```"
 OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type', 'title', 'colapse', 'lines']
 
 
