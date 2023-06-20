@@ -16,7 +16,11 @@ class ObsidianSupportPlugin(BasePlugin):
 
     def on_page_markdown(self, markdown, page, config, files):
         ## apply conversions
-        print("OLOLO TEST TEST")
+
+        text_file = open("log.txt", "w")
+        n = text_file.write('DEBUG DEBUG DEBUG 1')
+        text_file.close()
+
         markdown = markdown_convert(markdown, page, AdmonitionConvert())
         markdown = markdown_convert(markdown, page, AdmonitionBackquotesConvert())
         markdown = markdown_convert(markdown, page, ExcalidrawConvert())
