@@ -32,7 +32,7 @@ def create_admonition(ad_type: str, title: str, colapse: str, lines: str) -> str
     else:
         title = '"'+ title + '"'
 
-    if colapse == "closed"
+    if colapse == "closed":
         colapse = '??? '
     elif colapse == "none":
         colapse = '!!! '
