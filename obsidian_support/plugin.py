@@ -17,9 +17,8 @@ class ObsidianSupportPlugin(BasePlugin):
     def on_page_markdown(self, markdown, page, config, files):
         ## apply conversions
 
-        text_file = open("log.txt", "w")
-        n = text_file.write('DEBUG DEBUG DEBUG 1')
-        text_file.close()
+        with open("log.txt", "w+") as file:
+            file.write('DEBUG on_page_markdown DEBUG')
 
         markdown = markdown_convert(markdown, page, AdmonitionConvert())
         markdown = markdown_convert(markdown, page, AdmonitionBackquotesConvert())
