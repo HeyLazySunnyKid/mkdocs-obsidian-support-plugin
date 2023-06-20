@@ -12,6 +12,10 @@ def markdown_convert(markdown: str, page: Page, conversion: AbstractConversion) 
     index = 0
     with open("log.txt", "a") as file:
         file.write(f"OLOLO: ---- DEBUG\n")
+
+    with open("log.txt", "a") as file:
+        file.write(f"{markdown}\n")
+
     for obsidian_syntax in conversion.obsidian_regex_pattern.finditer(markdown):
 
         with open("log.txt", "a") as file:
