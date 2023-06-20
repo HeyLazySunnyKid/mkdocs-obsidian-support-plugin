@@ -27,11 +27,11 @@ class AdmonitionBackquotesConvert(AbstractConversion):
 
 
 def create_admonition(ad_type: str) -> str:
-    if title is None:
-        title = ""
+    #  if title is None:
+        #  title = ""
     # debug
-    if lines is None:
-        lines = ""
+    #  if lines is None:
+        #  lines = ""
 
     admonition = "\n!!! " + ad_type + title + "\n" + lines
     return admonition
