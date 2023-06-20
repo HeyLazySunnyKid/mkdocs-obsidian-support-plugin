@@ -26,10 +26,10 @@ def create_admonition(ad_type: str, title: str, collapse: str, lines: str) -> st
 
     if collapse == "closed":
         collapse = '??? '
-    elif collapse == "none":
-        collapse = '!!! '
+    elif collapse == "open":
+        collapse = '???+ '
     else:
-        collapse = "???+ "
+        collapse = "!!! "
 
     lines = lines.replace("\n", "\n\n    ")
 
