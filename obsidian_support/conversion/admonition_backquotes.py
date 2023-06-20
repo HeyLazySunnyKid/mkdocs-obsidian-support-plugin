@@ -10,7 +10,7 @@ to [mkdocs-material admonition](https://squidfunk.github.io/mkdocs-material/refe
 #  OBSIDIAN_CALL_OUT_REGEX = "\n```(?P<type>[a-z]+)\\]\n(title: (?P<title> .*))?\n(?P<lines>(.*\n))```"
 # OBSIDIAN_CALL_OUT_REGEX = "\n```\\[(?P<type>[a-z]+)\\]```"
 OBSIDIAN_CALL_OUT_REGEX = r"```(?P<type>[a-z]+)```"
-OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type', 'title', 'lines']
+OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type']
 
 
 class AdmonitionBackquotesConvert(AbstractConversion):
@@ -26,7 +26,7 @@ class AdmonitionBackquotesConvert(AbstractConversion):
         return create_admonition(*syntax_groups)
 
 
-def create_admonition(ad_type: str, title: str, lines: str) -> str:
+def create_admonition(ad_type: str) -> str:
     if title is None:
         title = ""
     # debug
