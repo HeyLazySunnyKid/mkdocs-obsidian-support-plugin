@@ -17,19 +17,21 @@ OBSIDIAN_CALL_OUT_REGEX_GROUPS = ['type']
 class AdmonitionBackquotesConvert(AbstractConversion):
     def __init__(self):
         super().__init__(OBSIDIAN_CALL_OUT_REGEX, OBSIDIAN_CALL_OUT_REGEX_GROUPS)
-        with open("log.txt", "w+") as file:
+
+        with open("log.txt", "a") as file:
             file.write('DEBUG init DEBUG')
 
     def convert(self, syntax_groups: SyntaxGroup, page: Page) -> str:
-        with open("log.txt", "w+") as file:
+        with open("log.txt", "a") as file:
             file.write('DEBUG convert DEBUG')
         return create_admonition(*syntax_groups)
 
 
 def create_admonition(ad_type: str) -> str:
     #  if title is None:
-    with open("log.txt", "w+") as file:
-        file.write('DEBUG on_page_markdown DEBUG')
+    with open("log.txt", "a") as file:
+        file.write('DEBUG create motion DEBUG')
+
     title = "adfadsfasd"
 
     #  if lines is None:
