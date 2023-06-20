@@ -41,5 +41,5 @@ def create_admonition(ad_type: str, title: str, colapse: str, lines: str) -> str
 
     lines = lines.replace("\n", "\n    ")
 
-    admonition = "\n"+ colapse + ad_type + ' ' + title + "\n" + lines
+    admonition = "\n"+ colapse + ad_type + ' ' + title + "\n\n" + lines
     return admonition
